@@ -146,7 +146,17 @@ Add the following code to a new file named ***roles.tf***
  8. - Create Relational Database (RDS)
 
 
+**CREATE SECURITY GROUPS**
 
+We are going to create all the security groups in a single file, then we are going to refrence this security group within each resources that needs it.
+
+IMPORTANT:
+
+Check out the terraform documentation for security group
+
+Check out the terraform documentation for security group rule
+
+Create a file and name it security.tf, copy and paste the code below
 
 
 
