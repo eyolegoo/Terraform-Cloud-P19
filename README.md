@@ -41,4 +41,123 @@ AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
 
   - A NAT gateway is a Network Address Translation (NAT) service. You can use a NAT gateway so that instances in a private subnet can connect to services outside your VPC but external services cannot initiate a connection with those instances.
 
-- 
+**Networking**
+
+***Private subnets & best practices***
+
+
+- Create 4 private subnets keeping in mind following principles:
+
+    - Make sure you use variables or ***length()*** function to determine the number of AZs
+      
+    - Use variables and ***cidrsubnet()*** function to allocate ***vpc_cidr*** for subnets
+
+    - Keep variables and resources in separate files for better code structure and readability
+
+    - Tags all the resources you have created so far. Explore how to use ***format()*** and ***count*** functions to automatically tag subnets with its respective number.
+
+<img width="957" alt="Creating 4 Private subnets and tagging" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/774b4607-9041-46e6-95da-f13728917856">
+
+<img width="820" alt="Creating 4 Private subnets ii" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/babf96bb-ac1c-4264-acb2-8a361305c33e">
+
+<img width="733" alt="Creating 4 Private subnets iii" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/2ebb879b-76c9-4116-950c-231fea3de499">
+
+
+**Internet Gateways & ***format()*** function**
+
+- Create an Internet Gateway in a separate Terraform file ***internet_gateway.tf***
+
+<img width="958" alt="Internet-gw" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/f613f030-ae92-4943-9720-760ef77b7b5c">
+
+
+**NAT Gateways**
+
+- Create 1 NAT Gateways and 1 Elastic IP (EIP) addresses
+
+- Now use similar approach to create the NAT Gateways in a new file called ***natgateway.tf**.
+
+- Note: We need to create an Elastic IP for the NAT Gateway, and you can see the use of ***depends_on*** to indicate that the Internet Gateway resource must be available before this should be created. Although Terraform does a good job to manage dependencies, but in some cases, it is good to be explicit.
+
+You can read more on dependencies [here](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on)
+
+
+**AWS ROUTES**
+
+- Create a file called **route_tables.tf** and use it to create routes for both public and private subnets, create the below resources.
+
+- Ensure they are properly tagged.
+
+  - aws_route_table
+    
+  - aws_route
+    
+  - aws_route_table_association
+ 
+<img width="955" alt="route-table" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/233cd17a-b115-42f0-8ecd-fe44059d9567">
+
+- Now, we are done with Networking part of AWS set up, let us move on to Compute and Access Control configuration automation using Terraform!
+
+
+**AWS Identity and Access Management**
+
+- [IaM](https://docs.aws.amazon.com/iam/) and [Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)
+  
+- We want to pass an IAM role our EC2 instances to give them access to some specific resources, so we need to do the following:
+
+1. - Create [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)
+
+- Assume Role uses Security Token Service (STS) API that returns a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to. These temporary credentials consist of an access key ID, a secret access key, and a security token. Typically, you use ***AssumeRole*** within your account or for cross-account access.
+
+Add the following code to a new file named ***roles.tf***
+
+2. - Create [IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) for this role
+  
+- This is where we need to define a required policy (i.e., permissions) according to our requirements. For example, allowing an IAM role to perform action **describe** applied to EC2 instances:
+
+3. - Attach the ***Policy*** to the ***IAM Role***
+  
+- This is where, we will be attaching the policy which we created above, to the role we created in the first step.
+
+4. - Create an [Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and interpolate the ***IAM Role***
+
+<img width="960" alt="roles" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/74ac21b5-7835-487a-ad0f-c60e3f8677bb">
+  
+- We are pretty much done with Identity and Management part for now, let us move on and create other resources required.
+
+
+**Resources to be created**
+
+- As per our architecture we need to do the following:
+
+ 1. - Create Security Groups
+  
+ 2. - Create Target Group for Nginx, WordPress and Tooling
+      
+ 3. - Create certificate from AWS certificate manager
+
+ 4. - Create an External Application Load Balancer and Internal Application Load Balancer.
+
+ 5. - create launch template for Bastion, Tooling, Nginx and WordPress
+
+ 6. - Create an Auto Scaling Group (ASG) for Bastion, Tooling, Nginx and WordPress
+
+ 7. - Create Elastic Filesystem
+
+ 8. - Create Relational Database (RDS)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
