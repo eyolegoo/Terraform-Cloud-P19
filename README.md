@@ -18,15 +18,25 @@ AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
   - [Networking Part 1](https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking#netmasks-and-subnets)
 
 **IP Address**
+
   - An IP address is a unique address that identifies a device on the internet or a local network. IP stands for "Internet Protocol," which is the set of rules governing the format of data sent via the internet or local network.
 
 **Subnets**
+
   - A subnet, or subnetwork, is a segmented piece of a larger network. More specifically, subnets are a logical partition of an IP network into multiple, smaller network segments.
+    
 **CIDR Notation**
+
   - CIDR notation (Classless Inter-Domain Routing) is an alternate method of representing a subnet mask. It is simply a count of the number of network bits (bits that are set to 1) in the subnet mask.
+
 **IP Routing**
+
   - IP routing is the process of sending packets from a host on one network to another host on a different remote network
+
 **Internet Gateways**
+
   - An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between your VPC and the internet
+
 **NAT**
+
   - A NAT gateway is a Network Address Translation (NAT) service. You can use a NAT gateway so that instances in a private subnet can connect to services outside your VPC but external services cannot initiate a connection with those instances.
