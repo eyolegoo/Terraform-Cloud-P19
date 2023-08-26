@@ -148,26 +148,68 @@ Add the following code to a new file named ***roles.tf***
 
 **CREATE SECURITY GROUPS**
 
-We are going to create all the security groups in a single file, then we are going to refrence this security group within each resources that needs it.
+- We are going to create all the security groups in a single file, then we are going to refrence this security group within each resources that needs it.
 
-IMPORTANT:
+***IMPORTANT***:
 
-Check out the terraform documentation for security group
+  - Check out the terraform documentation for [security group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)
 
-Check out the terraform documentation for security group rule
+  - Check out the terraform documentation for [security group rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule)
 
-Create a file and name it security.tf, copy and paste the code below
+- Create a file and name it ***security.tf***, copy and paste the code below
 
+<img width="960" alt="Sec grp 1" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/900dde5e-eec4-4445-af4d-f72f19f85b95">
 
+<img width="960" alt="Sec grp 2" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/645dd1c5-41b3-4840-8f24-20d0597d6600">
 
+<img width="738" alt="Sec grp 3" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/88f2b399-4c75-453a-8ffd-e1f5229772ab">
 
-
-
-
-
-
-
+- ***IMPORTANT NOTE***: We used the ***aws_security_group_rule*** to refrence another security group in a security group.
 
 
+**CREATE CERTIFICATE FROM AMAZON CERIFICATE MANAGER**
+
+- Create ***cert.tf*** file and add the following code snippets to it.
+
+- ***NOTE***: Read Through to change the domain name to your own domain name and every other name that needs to be changed.
+
+  - Check out the terraform documentation for [AWS Certifivate manager](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate)
+ 
+**Create an external (Internet facing) [Application Load Balancer (ALB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancer-getting-started.html)**
+
+- Create a file ***called alb.tf***
+
+First of all we will create the ALB, then we create the target group and lastly we will create the lsitener rule.
+
+Useful Terraform Documentation, go through this documentation and understand the arguement needed for each resources:
+
+  - [ALB](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)
+    
+  - [ALB-target](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group)
+    
+  - [ALB-listener](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener)
+    
+- We need to create an ALB to balance the traffic between the Instances:
+
+- To inform our ALB to where route the traffic we need to create a [Target Group](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html) to point to its targets:
+
+- Then we will need to create a [Listner](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html) for this target Group
+
+**Create an Internal (Internal) [Application Load Balancer (ALB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internal-load-balancers.html)**
+  
+- For the Internal Load balancer we will fillow the same concepts with the external load balancer.
+
+- Add the code snippets inside the ***alb.tf*** file
+
+**To inform our ALB to where route the traffic we need to create a [Target Group](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html) to point to its targets**:
+
+**Then we will need to create a [Listner](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html) for this target Group**
+
+<img width="960" alt="Creating Alb" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/bdb4795c-4b2e-4b7a-bd39-912cf9325bfc">
+
+**Add the following outputs to ***output.tf*** to print them on screen**
+
+<img width="747" alt="output" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/b206b416-414f-4121-b538-9b491667f1a0">
 
 
+**CREATING AUSTOALING GROUPS**
