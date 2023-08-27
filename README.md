@@ -1,6 +1,8 @@
 # PROJECT-17
 AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
 
+- **This Project is a continuation of Project 16**
+  
 - Before we go deeper into automating other parts of our infrastructure on AWS, it is very important to fully understand certain concepts around **Networking** (in case this is completely new area to you). Networking is a very broad topic and some of internals of Terraform modules related to Networking, like ***cidrsubnet()***, may still not be fully clear to you.
 
 - To fully clear your understanding, we highly recommend you watching Networking videos by Eli the Computer Guy on YouTube, and in addition to that, read following golden articles on **Networking Terminology, Interfaces, Protocols, IP Address, Subnets, and CIDR Notation by Justin Ellingwood from Digital Ocean**.
@@ -277,4 +279,29 @@ AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
 - Let us create the RDS itself using this snippet of code in ***rds.tf*** file:
 
 <img width="777" alt="Creating rds" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/d124078b-79e4-4bdd-b69d-a92b033f8e6e">
+
+
+
+**Additional files on main.tf, variable.tf and terraform.tfvars**
+
+
+<img width="960" alt="main tf" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/ce4f80b5-d143-4860-ab27-f0b231f0f614">
+
+
+<img width="960" alt="variable" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/77cba78c-1285-44a5-b63a-18831a499b6c">
+
+
+
+<img width="960" alt="terraform tfvars" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/6b49516f-5eb5-4d64-846e-063e74528b78">
+
+
+
+
+
+
+
+
+
+
+
 
