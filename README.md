@@ -70,6 +70,7 @@ AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
 <img width="958" alt="Internet-gw" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/f613f030-ae92-4943-9720-760ef77b7b5c">
 
 
+
 **NAT Gateways**
 
 - Create 1 NAT Gateways and 1 Elastic IP (EIP) addresses
@@ -78,7 +79,7 @@ AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
 
 - Note: We need to create an Elastic IP for the NAT Gateway, and you can see the use of ***depends_on*** to indicate that the Internet Gateway resource must be available before this should be created. Although Terraform does a good job to manage dependencies, but in some cases, it is good to be explicit.
 
-You can read more on dependencies [here](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on)
+- You can read more on dependencies [here](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on)
 
 
 **AWS ROUTES**
@@ -95,12 +96,14 @@ You can read more on dependencies [here](https://developer.hashicorp.com/terrafo
  
 <img width="955" alt="route-table" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/233cd17a-b115-42f0-8ecd-fe44059d9567">
 
+
 - Now, we are done with Networking part of AWS set up, let us move on to Compute and Access Control configuration automation using Terraform!
 
 
 **AWS Identity and Access Management**
 
 - [IaM](https://docs.aws.amazon.com/iam/) and [Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)
+
   
 - We want to pass an IAM role our EC2 instances to give them access to some specific resources, so we need to do the following:
 
@@ -108,7 +111,7 @@ You can read more on dependencies [here](https://developer.hashicorp.com/terrafo
 
 - Assume Role uses Security Token Service (STS) API that returns a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to. These temporary credentials consist of an access key ID, a secret access key, and a security token. Typically, you use ***AssumeRole*** within your account or for cross-account access.
 
-Add the following code to a new file named ***roles.tf***
+- Add the following code to a new file named ***roles.tf***
 
 2. - Create [IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) for this role
   
@@ -121,6 +124,7 @@ Add the following code to a new file named ***roles.tf***
 4. - Create an [Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and interpolate the ***IAM Role***
 
 <img width="960" alt="roles" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/74ac21b5-7835-487a-ad0f-c60e3f8677bb">
+
   
 - We are pretty much done with Identity and Management part for now, let us move on and create other resources required.
 
@@ -163,6 +167,7 @@ Add the following code to a new file named ***roles.tf***
 <img width="960" alt="Sec grp 2" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/645dd1c5-41b3-4840-8f24-20d0597d6600">
 
 <img width="738" alt="Sec grp 3" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/88f2b399-4c75-453a-8ffd-e1f5229772ab">
+
 
 - ***IMPORTANT NOTE***: We used the ***aws_security_group_rule*** to refrence another security group in a security group.
 
@@ -236,10 +241,40 @@ Useful Terraform Documentation, go through this documentation and understand the
 
 <img width="957" alt="ASG bastion-Nginx" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/0898e1d6-bdd0-4403-8028-8ebe3c74c094">
 
+
 - **Autoscaling for wordpress and toolibng will be created in a seperate file**
 
 - Create ***asg-wordpress-tooling.tf*** and paste the following code
 
 <img width="960" alt="AGS Wordpress-Tooling" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/11955dc6-cf08-44ca-98d4-caf6e0bbb0f7">
 
+
+**STORAGE AND DATABASE**
+
+- Useful Terraform Documentation, go through this documentation and understand the arguement needed for each resources:
+
+   - [RDS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group)
+   
+   - [EFS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)
+
+   - [KMS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key)
+
+- **Create Elastic File System (EFS)**
+  
+- In order to create an EFS you need to create a [KMS key](https://aws.amazon.com/kms/getting-started/).
+
+- AWS Key Management Service (KMS) makes it easy for you to create and manage cryptographic keys and control their use across a wide range of AWS services and in your applications.
+
+- Add the following code for KMS to ***efs.tf***
+
+- Let us create EFS and it mount targets- add the following code to efs.tf
+
+<img width="959" alt="efs" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/fbc3122f-a8e3-48b6-a5ab-6eed78b58d93">
+
+
+**Create [MySQL RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html)**
+
+- Let us create the RDS itself using this snippet of code in ***rds.tf*** file:
+
+<img width="777" alt="Creating rds" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/d124078b-79e4-4bdd-b69d-a92b033f8e6e">
 
