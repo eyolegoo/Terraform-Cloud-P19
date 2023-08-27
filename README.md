@@ -213,3 +213,33 @@ Useful Terraform Documentation, go through this documentation and understand the
 
 
 **CREATING AUSTOALING GROUPS**
+
+- This Section we will create the [Auto Scaling Group (ASG)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
+  
+- Now we need to configure our ASG to be able to scale the EC2s out and in depending on the application traffic.
+
+- Before we start configuring an ASG, we need to create the launch template and the the AMI needed. For now we are going to use a random AMI from AWS, then in project 19, we will use [Packer](https://developer.hashicorp.com/packer/docs/intro) to create our ami.
+
+- Based on our Architetcture we need for Auto Scaling Groups for bastion, nginx, wordpress and tooling, so we will create two files; ***asg-bastion-nginx.tf*** will contain Launch Template and Austoscaling froup for Bastion and Nginx, then ***asg-wordpress-tooling.tf*** will contain Launch Template and Austoscaling group for wordpress and tooling.
+
+- Useful Terraform Documentation, go through this documentation and understand the arguement needed for each resources:
+
+   - [SNS-topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic)
+    
+   - [SNS-notification](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_notification)
+    
+   - [Austoscaling](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)
+    
+   - [Launch-template](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_template)
+
+- Create ***asg-bastion-nginx.tf*** and paste all the code snippet below;
+
+<img width="957" alt="ASG bastion-Nginx" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/0898e1d6-bdd0-4403-8028-8ebe3c74c094">
+
+- **Autoscaling for wordpress and toolibng will be created in a seperate file**
+
+- Create ***asg-wordpress-tooling.tf*** and paste the following code
+
+<img width="960" alt="AGS Wordpress-Tooling" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/11955dc6-cf08-44ca-98d4-caf6e0bbb0f7">
+
+
