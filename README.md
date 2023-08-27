@@ -184,9 +184,9 @@ AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
 
 - Create a file ***called alb.tf***
 
-First of all we will create the ALB, then we create the target group and lastly we will create the lsitener rule.
+- First of all we will create the ALB, then we create the target group and lastly we will create the lsitener rule.
 
-Useful Terraform Documentation, go through this documentation and understand the arguement needed for each resources:
+- Useful Terraform Documentation, go through this documentation and understand the arguement needed for each resources:
 
   - [ALB](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)
     
