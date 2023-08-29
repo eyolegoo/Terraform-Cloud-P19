@@ -1,6 +1,9 @@
 # PROJECT-17
 ## AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
 
+<img width="399" alt="Infrastructure design" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/d8fb8459-59c7-4cb2-bf9f-3d219341a0ae">
+
+
 - **This Project is a continuation of Project 16**
   
 - Before we go deeper into automating other parts of our infrastructure on AWS, it is very important to fully understand certain concepts around **Networking** (in case this is completely new area to you). Networking is a very broad topic and some of internals of Terraform modules related to Networking, like ***cidrsubnet()***, may still not be fully clear to you.
