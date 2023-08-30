@@ -1,5 +1,5 @@
 # PROJECT-17
-## AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 2
+## AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM PART 3
 
 <img width="399" alt="Infrastructure design" src="https://github.com/eyolegoo/PROJECT-17/assets/115954100/d8fb8459-59c7-4cb2-bf9f-3d219341a0ae">
 
