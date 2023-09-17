@@ -61,3 +61,4 @@ resource "aws_route53_record" "wordpress" {
     evaluate_target_health = true
   }
 }
+

@@ -14,15 +14,15 @@ variable "enable_dns_hostnames" {
   default = "true"
 }
 
-variable "preferred_number_of_public_subnets" {
+variable "preferred_number_of_public_subnet" {
   type        = number
-  description = "number of public subnets"
+  description = "number of public subnet"
   default     = 2
 }
 
-variable "preferred_number_of_private_subnets" {
+variable "preferred_number_of_private_subnet" {
   type        = number
-  description = "number of private subnets"
+  description = "number of private subnet"
   default     = 4
 }
 
