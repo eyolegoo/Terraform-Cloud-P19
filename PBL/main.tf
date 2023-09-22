@@ -3,10 +3,10 @@
 ##creating bucket for s3 backend
 
 resource "aws_s3_bucket" "terraform-state" {
-  bucket        = "pbl-test-18"
-  force_destroy = true
+  bucket        = "lego-18-bucket"
+  # force_destroy = true
 }
-resource "aws_s3_bucket_versioning" "version" {
+resource "aws_s3_bucket_versioning" "versioning_terraform-state" {
   bucket = aws_s3_bucket.terraform-state.id
   versioning_configuration {
     status = "Enabled"

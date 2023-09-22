@@ -20,7 +20,7 @@ EOF
 
 # create key alias
 resource "aws_kms_alias" "alias" {
-  name          = "alias/kms"
+  name          = "alias/kms1"
   target_key_id = aws_kms_key.lego-kms.key_id
 }
 
