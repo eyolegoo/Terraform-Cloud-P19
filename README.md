@@ -26,11 +26,12 @@ project image
 
   - terraform graph | dot -Tpng > graph.png
 
-- Read More abot terrafrom graph
+## ***Read More abot terrafrom graph***
 
 https://www.terraform.io/docs/cli/commands/graph.html
 
-Action Plan for project 19
+
+## Action Plan for project 19
 Build images using packer
 
 confirm the AMIs in the console
