@@ -32,17 +32,18 @@ https://www.terraform.io/docs/cli/commands/graph.html
 
 
 ## Action Plan for project 19
-Build images using packer
 
-confirm the AMIs in the console
+   - Build images using packer
 
-update terrafrom script with new ami IDs generated from packer build
+   - confirm the AMIs in the console
 
-create terraform cloud account and backend
+   - update terrafrom script with new ami IDs generated from packer build
 
-run terraform script
+   - create terraform cloud account and backend
 
-update ansible script with values from teraform output
+   - run terraform script
+
+- update ansible script with values from teraform output
 
 RDS endpoints for wordpress and tooling
 Database name, password and username for wordpress and tooling
