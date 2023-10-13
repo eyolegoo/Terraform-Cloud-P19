@@ -3,7 +3,7 @@
 ##creating bucket for s3 backend
 
 resource "aws_s3_bucket" "terraform-state" {
-  bucket        = "lego-18-bucket"
+  bucket = "lego-18-bucket"
   # force_destroy = true
 }
 resource "aws_s3_bucket_versioning" "versioning_terraform-state" {
