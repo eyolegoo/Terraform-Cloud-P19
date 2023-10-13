@@ -105,4 +105,3 @@ resource "aws_security_group_rule" "inbound-mysql-webserver" {
   security_group_id        = aws_security_group.Lego["datalayer-sg"].id
 }
 
-
