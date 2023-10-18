@@ -53,7 +53,7 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
   policy_arn = aws_iam_policy.policy.arn
 }
 
-resource "aws_iam_instance_profile" "lego" {
-  name = "aws_instance_profile_lego"
+resource "aws_iam_instance_profile" "ip" {
+  name = "aws_instance_profile_legoo"
   role = aws_iam_role.ec2_instance_role.name
 }
