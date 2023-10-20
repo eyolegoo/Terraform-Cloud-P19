@@ -11,7 +11,7 @@ variable "public_subnet_1" {
 }
 
 variable "public_subnet_2" {
-  description = "Public subnets to deploy external  ALB"
+  description = "Public subnets to deploy external ALB"
 }
 
 variable "vpc_id" {
@@ -20,7 +20,7 @@ variable "vpc_id" {
 }
 
 variable "private-sg" {
-  description = "Security group for Internal Load Balance"
+  description = "Security group for Internal load Balance"
 }
 
 variable "private_subnet_1" {
@@ -37,7 +37,7 @@ variable "ip_address_type" {
 
 variable "load_balancer_type" {
   type        = string
-  description = "te type of Load Balancer"
+  description = "te type of load Balancer"
 }
 
 variable "tags" {
