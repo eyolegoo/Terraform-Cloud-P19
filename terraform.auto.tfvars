@@ -10,7 +10,9 @@ preferred_number_of_public_subnet = 2
 
 preferred_number_of_private_subnet = 4
 
-ami = "ami-0149b2da6ceec4bb0"
+ami-jenkins = "ami-0149b2da6ceec4bb0"
+
+ami-jfrog = "ami-0149b2da6ceec4bb0"
 
 ami-bastion = "ami-0ade15728b4d74c05"
 
@@ -34,4 +36,3 @@ tags = {
   Managed-By      = "terraform"
   Billing-Account = "648544004274"
 }
-

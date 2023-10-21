@@ -37,11 +37,15 @@ variable "tags" {
   default     = {}
 }
 
-variable "ami" {
+variable "ami-jfrog" {
   type        = string
   description = "AMI ID for the launch template"
 }
 
+variable "ami-jenkins" {
+  type        = string
+  description = "AMI ID for the launch template"
+}
 variable "ami-bastion" {
   type        = string
   description = "AMI ID for the launch template"
@@ -80,4 +84,3 @@ variable "db-password" {
   type        = string
   description = "RDS master password"
 }
-
