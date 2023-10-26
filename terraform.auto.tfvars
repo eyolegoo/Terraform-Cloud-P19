@@ -14,13 +14,13 @@ ami-jenkins = "ami-0149b2da6ceec4bb0"
 
 ami-jfrog = "ami-0149b2da6ceec4bb0"
 
-ami-bastion = "ami-0fbcb8cdf41accc75"
+ami-bastion = "ami-03b474e350c60d159"
 
-ami-nginx = "ami-08168d5ec8bdeaa4f"
+ami-nginx = "ami-0b08da916d4fc9fe1"
 
-ami-sonar = "ami-0965c838c11b28f56"
+ami-sonar = "ami-0647be5cb281201a7"
 
-ami-web = "ami-0a7d7e0b71edfdaa1"
+ami-web = "ami-02558a646694a4310"
 
 keypair = "DevKey"
 
